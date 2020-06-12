@@ -9,6 +9,9 @@ export default class List extends Lightning.Component {
                 transitions: {
                     x: {duration: .3, timingFunction: 'cubic-bezier(0.20, 1.00, 0.80, 1.00)'}
                 },
+                signals: {
+                    updateMetadata: "_updateMetadata",
+                }
             },
             Focus: {
                 texture: Lightning.Tools.getRoundRect(Item.width+8, Item.height+8, 10, 4, 0xff8ecea2, false, 0xff00ffff),
@@ -75,7 +78,7 @@ export default class List extends Lightning.Component {
         return this.activeItem;
     }
 
-    $updateMetadata(item) {
+    _updateMetadata(item) {
         const focusTransitionDuration = 0.5;
 
         console.log("updateMetadata: "+item.title);

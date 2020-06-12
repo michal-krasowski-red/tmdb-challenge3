@@ -121,7 +121,7 @@ export default class Item extends Lightning.Component {
 
         this._focusAnimation.start();
 
-        this.fireAncestors('$updateMetadata', this._item);
+        this.signal('updateMetadata', this._item);
     }
 
     _unfocus() {
@@ -139,7 +139,7 @@ export default class Item extends Lightning.Component {
 
         this._focusAnimation.stop();
 
-        this.fireAncestors('$updateMetadata', new Movie({title: ""}))
+        this.signal('updateMetadata', new Movie({title: ""}))
     }
 
     static get width() {
